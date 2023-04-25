@@ -1,0 +1,22 @@
+.form__input-error {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #f00;
+    opacity: 0;
+    margin: 0;
+    padding: 5px 0 0;
+    width: 358px;
+    min-height: 27px;
+    border: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 550px) {
+    .form__input-error {
+        width: 238px;
+    }
+}
