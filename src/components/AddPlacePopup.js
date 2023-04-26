@@ -1,13 +1,13 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function AddPlacePopup(props) {
+function AddPlacePopup({isOpen, onClose}) {
   return (
     <PopupWithForm
       name="card"
       title="Новое место"
-      isOpen={props.isOpen}
-      onClose={props.onClose}
+      isOpen={isOpen}
+      onClose={onClose}
       buttonText={"Создать"}
     >
       <input

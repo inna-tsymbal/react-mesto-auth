@@ -1,8 +1,9 @@
 import React from "react";
 
-function Card(props) {
+function Card({card, onCardClick}) {
+
   function handleClick() {
-    props.onCardClick(props.card);
+    onCardClick(card);
   }
 
   return (
@@ -10,15 +11,15 @@ function Card(props) {
       <button className="card__delete" type="button" />
       <img
         className="card__image"
-        src={props.src}
-        alt={props.title}
+        src={card.link}
+        alt={card.name}
         onClick={handleClick}
       />
       <div className="card__group">
-        <h2 className="card__title">{props.title}</h2>
+        <h2 className="card__title">{card.name}</h2>
         <div className="card__like">
           <button className="card__button-like" type="button" />
-          <div className="card__number-like">{props.like.length}</div>
+          <div className="card__number-like">{card.likes.length}</div>
         </div>
       </div>
     </article>
