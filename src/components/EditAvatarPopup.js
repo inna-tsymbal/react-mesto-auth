@@ -1,7 +1,7 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function EditAvatarPopup({isOpen, onClose}) {
+function EditAvatarPopup({ isOpen, onClose }) {
   return (
     <PopupWithForm
       name="avatar"

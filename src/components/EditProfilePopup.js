@@ -1,7 +1,7 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function EditProfilePopup({isOpen, onClose}) {
+function EditProfilePopup({ isOpen, onClose }) {
   return (
     <PopupWithForm
       name="profile"

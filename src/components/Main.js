@@ -1,11 +1,11 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from "react";
 import api from "../utils/Api.js";
 import Card from "./Card.js";
 
-function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
-  const [userName, setUserName] = useState();
-  const [userDescription, setUserDescription] = useState();
-  const [userAvatar, setUserAvatar] = useState();
+function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
+  const [userName, setUserName] = useState("");
+  const [userDescription, setUserDescription] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -52,11 +52,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
       </section>
       <section className="cards">
         {cards.map((card) => (
-          <Card
-            onCardClick={onCardClick}
-            card={card}
-            key={card._id}
-          />
+          <Card onCardClick={onCardClick} card={card} key={card._id} />
         ))}
       </section>
     </main>
