@@ -27,10 +27,7 @@ class Api {
     return fetch(`${this._url}users/me/`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({
-        name: data.name,
-        about: data.job,
-      }),
+      body: JSON.stringify(data),
     }).then(this._checkResponse);
   }
 
@@ -38,10 +35,7 @@ class Api {
     return fetch(`${this._url}cards/`, {
       method: "POST",
       headers: this._headers,
-      body: JSON.stringify({
-        name: data.title,
-        link: data.link,
-      }),
+      body: JSON.stringify(data),
     }).then(this._checkResponse);
   }
 
@@ -70,9 +64,7 @@ class Api {
     return fetch(`${this._url}users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({
-        avatar: data.avatar,
-      }),
+      body: JSON.stringify(data),
     }).then(this._checkResponse);
   }
 }
