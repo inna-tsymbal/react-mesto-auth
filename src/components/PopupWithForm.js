@@ -16,17 +16,21 @@ function PopupWithForm({
   useEffect(() => {
     if (isOpen) {
       document.addEventListener("keydown", onCloseEsc);
-    } else {
+    } 
+    
+    return () => {
       document.removeEventListener("keydown", onCloseEsc);
-    }
+    };
   }, [isOpen]);
 
   useEffect(() => {
     if (isOpen) {
       document.addEventListener("mousedown", onCloseOverlay);
-    } else {
+    } 
+    
+    return () => {
       document.removeEventListener("mousedown", onCloseOverlay);
-    }
+    };
   }, [isOpen]);
 
   return (
@@ -41,7 +45,6 @@ function PopupWithForm({
         <form
           className={`form form_${name}`}
           name={name}
-          noValidate
           onSubmit={onSubmit}
         >
           {children}

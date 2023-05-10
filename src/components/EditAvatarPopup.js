@@ -13,7 +13,6 @@ function EditAvatarPopup({
 
   function handleSubmit(e) {
     e.preventDefault();
-
     onUpdateAvatar({
       avatar: ref.current.value,
     });

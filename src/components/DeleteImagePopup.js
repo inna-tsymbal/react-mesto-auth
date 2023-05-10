@@ -10,7 +10,6 @@ function DeleteImagePopup({
 }) {
   const handleDeleteClick = () => {
     onCardDelete(card);
-    onClose();
   };
   return (
     <div className={`popup popup_delete ${card.link ? "popup_opened" : ""}`}>
@@ -19,7 +18,7 @@ function DeleteImagePopup({
           onClick={onClose}
           className="popup__close-button popup__close-button_delete"
           type="button"
-        ></button>
+        />
         <h3 className="popup__title popup__title_delete">{title}</h3>
         <button
           onClick={handleDeleteClick}
@@ -34,3 +33,4 @@ function DeleteImagePopup({
 }
 
 export default DeleteImagePopup;
+
