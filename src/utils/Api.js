@@ -5,76 +5,75 @@ class Api {
   }
 
   _checkResponse(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
+    return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
+  }
+
+  _request(url, options) {
+    return fetch(url, options).then(this._checkResponse);
   }
 
   getUserInfo() {
-    return fetch(`${this._url}users/me/`, {
+    return this._request(`${this._url}users/me/`, {
       headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 
   getInitialCards() {
-    return fetch(`${this._url}cards/`, {
+    return this._request(`${this._url}cards/`, {
       headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 
   patchUserInfo(data) {
-    return fetch(`${this._url}users/me/`, {
+    return this._request(`${this._url}users/me/`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(data),
-    }).then(this._checkResponse);
+    });
   }
 
   postNewCard(data) {
-    return fetch(`${this._url}cards/`, {
+    return this._request(`${this._url}cards/`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify(data),
-    }).then(this._checkResponse);
+    });
   }
 
   deleteCard(id) {
-    return fetch(`${this._url}cards/${id}`, {
+    return this._request(`${this._url}cards/${id}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 
   putLikeCard(id) {
-    return fetch(`${this._url}cards/${id}/likes`, {
+    return this._request(`${this._url}cards/${id}/likes`, {
       method: "PUT",
       headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 
   deleteLikeCard(id) {
-    return fetch(`${this._url}cards/${id}/likes`, {
+    return this._request(`${this._url}cards/${id}/likes`, {
       method: "DELETE",
       headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 
   patchUserAvatar(data) {
-    return fetch(`${this._url}users/me/avatar`, {
+    return this._request(`${this._url}users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(data),
-    }).then(this._checkResponse);
+    });
   }
 }
 
-const api = new Api({
+export const api = new Api({
   url: "https://mesto.nomoreparties.co/v1/cohort-63/",
   headers: {
     authorization: "86cb0e0c-371a-42a2-8a62-1fa7a868a09c",
     "content-Type": "application/json",
   },
 });
-
-export default api;

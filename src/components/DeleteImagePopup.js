@@ -1,6 +1,4 @@
-import React from "react";
-
-function DeleteImagePopup({
+export default function DeleteImagePopup({
   card,
   onClose,
   title,
@@ -11,6 +9,7 @@ function DeleteImagePopup({
   const handleDeleteClick = () => {
     onCardDelete(card);
   };
+
   return (
     <div className={`popup popup_delete ${card.link ? "popup_opened" : ""}`}>
       <div className="popup__container popup__container_delete">
@@ -31,6 +30,3 @@ function DeleteImagePopup({
     </div>
   );
 }
-
-export default DeleteImagePopup;
-

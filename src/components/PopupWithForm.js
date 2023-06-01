@@ -1,38 +1,13 @@
-import { useEffect } from "react";
-
-function PopupWithForm({
+export default function PopupWithForm({
   title,
   name,
   isOpen,
   onClose,
-  onCloseEsc,
-  onCloseOverlay,
   onSubmit,
-  isLoading,
   buttonText,
-  buttonTextLoading,
   children,
+  buttonStatus,
 }) {
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener("keydown", onCloseEsc);
-    } 
-    
-    return () => {
-      document.removeEventListener("keydown", onCloseEsc);
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener("mousedown", onCloseOverlay);
-    } 
-    
-    return () => {
-      document.removeEventListener("mousedown", onCloseOverlay);
-    };
-  }, [isOpen]);
-
   return (
     <div className={`popup ${isOpen && "popup_opened"}`}>
       <div className={`popup__container popup__container_${name}`}>
@@ -46,15 +21,20 @@ function PopupWithForm({
           className={`form form_${name}`}
           name={name}
           onSubmit={onSubmit}
+          noValidate
         >
           {children}
-          <button type="submit" className={`form__button form__button_${name}`}>
-            {isLoading ? buttonTextLoading : buttonText || "Сохранить"}
+          <button
+            type="submit"
+            disabled={!buttonStatus}
+            className={`form__button ${
+              buttonStatus ? "" : "form__button_disabled"
+            }`}
+          >
+            {buttonText}
           </button>
         </form>
       </div>
     </div>
   );
 }
-
-export default PopupWithForm;

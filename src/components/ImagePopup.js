@@ -1,4 +1,4 @@
-function ImagePopup({ card, onClose }) {
+export default function ImagePopup({ card, onClose }) {
   return (
     <div className={`popup popup_image ${card.link ? "popup_opened" : ""}`}>
       <div className="popup__container popup__container_image">
@@ -13,5 +13,3 @@ function ImagePopup({ card, onClose }) {
     </div>
   );
 }
-
-export default ImagePopup;
