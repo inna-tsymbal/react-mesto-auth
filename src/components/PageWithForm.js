@@ -27,7 +27,7 @@ export default function PageWithForm({
             minLength={5}
             maxLength={40}
             required
-            value={values.email}
+            value={values.email || ""}
             onChange={handleInputChange}
           />
           <span className="form__input-error email-error">{errors.email}</span>

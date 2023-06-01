@@ -46,21 +46,6 @@ function App() {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    function handleClosePopup(e) {
-      if (e.target.classList.contains("popup_opened") || e.key === "Escape") {
-        closeAllPopups();
-      }
-    }
-    document.addEventListener("keydown", handleClosePopup);
-    document.addEventListener("mousedown", handleClosePopup);
-
-    return () => {
-      document.removeEventListener("keydown", handleClosePopup);
-      document.removeEventListener("mousedown", handleClosePopup);
-    };
-  }, []);
-
-  useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
       checkToken(jwt)

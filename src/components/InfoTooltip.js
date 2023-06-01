@@ -1,5 +1,6 @@
 import iconSuccess from "../images/icon__success.svg";
 import iconError from "../images/icon__error.svg";
+import useClosePopupOnEsc from "../hooks/useClosePopupOnEsc";
 
 export default function InfoTooltip({
   isOpen,
@@ -7,6 +8,8 @@ export default function InfoTooltip({
   isAuthStatus,
   message,
 }) {
+  useClosePopupOnEsc(isOpen, onClose);
+
   return (
     <div className={`popup ${isOpen && "popup_opened"}`}>
       <div className="popup__container popup__container_info">

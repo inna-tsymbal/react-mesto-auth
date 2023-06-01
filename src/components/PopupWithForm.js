@@ -1,3 +1,5 @@
+import useClosePopupOnEsc from "../hooks/useClosePopupOnEsc";
+
 export default function PopupWithForm({
   title,
   name,
@@ -8,6 +10,8 @@ export default function PopupWithForm({
   children,
   buttonStatus,
 }) {
+  useClosePopupOnEsc(isOpen, onClose);
+
   return (
     <div className={`popup ${isOpen && "popup_opened"}`}>
       <div className={`popup__container popup__container_${name}`}>
