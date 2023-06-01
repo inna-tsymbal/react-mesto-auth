@@ -1,6 +1,7 @@
 # Mesto
 
 ## Ссылка на GitHub Pages
+https://inna-tsymbal.github.io/react-mesto-auth/
 
 ## Обзор
 
